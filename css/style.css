@@ -1,0 +1,10 @@
+*{
+    background-color: rgb(216, 236, 216);
+    font-family: 'Roboto Mono', monospace;
+}
+
+table,
+th,
+td{
+    border: 1px solid black;
+}

@@ -1,6 +1,30 @@
 *{
-    background-color: rgb(216, 236, 216);
+    /*background-color: rgb(216, 236, 216);*/
     font-family: 'Roboto Mono', monospace;
+  }
+body{
+  background: url(../images/c34408a67d6ed876693abfa0a1563a6a.jpg)no-repeat center fixed;
+  background-size: cover;
+
+}
+#firstlink:link{
+  background-color: rgb(184, 138, 133);
+  color:rgb(221, 224, 230);
+
+}
+nav ul li{
+  text-decoration: none;
+  display: inline-block;
+  margin: 40px;
+}
+nav ul li a{
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+
+}
+img{
+  display: inline-block;
 }
 
 table,
@@ -8,13 +32,41 @@ th,
 td{
     border: 1px solid black;
 }
+table{
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+td:hover{
+  background-color: rgb(221, 224, 230);
+
+}
+th{
+  height: 60px;
+  padding: 20px;
+  background-color: rgb(184, 138, 133);
+}
+label{
+  text-align: center;
+ 
+}
+input{
+  color: black;
+  background-color: rgb(221, 224, 230);
+  text-align: center;
+  font-size: large;
+
+  
+
+}
+
 header{
     background-color: rgb(88, 87, 87);
     color: white;
     font-family: Arial, Helvetica, sans-serif; 
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
-    padding: 50px;
+   
 
 }
 footer{
@@ -33,6 +85,8 @@ footer{
     text-align: center;
     text-decoration: none;
     color:gray;
+    background: white;
+
   }
  
   .fa-instagram {

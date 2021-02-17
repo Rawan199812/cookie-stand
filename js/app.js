@@ -3,6 +3,8 @@ const hours=['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm
 let totalPerHour=[];
 let finelTotal=0;
 
+
+
 function getRrandomNumber (min,max){
     return Math.floor( Math.random()*(max-min+1)+min);
 }
@@ -30,7 +32,8 @@ function headerTable(){
         const thEl3=document.createElement('th');
         headerRow.appendChild(thEl3);
         thEl3.textContent='Location Total';
-    }
+      }
+      headerTable();
       
       function ShopeSales(name,min,max,avgCookie){
       this.name= name;
@@ -47,9 +50,7 @@ function headerTable(){
               totalPerHour[i]+=this.cookiesPerHour[i];
           }
         
-      };
-    
-        //console.log(headerTable);
+      }; //console.log(headerTable);
            
       ShopeSales.prototype.render=function(){
 
@@ -68,19 +69,14 @@ function headerTable(){
             trEl.appendChild(tddEl);
             tddEl.textContent=Math.floor(this.total);
             finelTotal+=this.total;
-         
-      };
-       
 
-      
+      };
       const seattle = new ShopeSales('Seattle',23,65,6.3);
       const tokyo = new ShopeSales('Tokyo',3, 24, 1.2);
       const dubai = new ShopeSales('Dubai',11,38,3.7);
       const paris = new ShopeSales('Paris',20, 38, 2.3);
       const lima = new ShopeSales('Lima',2, 16, 4.6,);
     
-    
-      headerTable();
       seattle.getCookies();
       seattle.render();
       tokyo.getCookies();
@@ -93,21 +89,52 @@ function headerTable(){
       lima.render();
 
 
-      function footer (){
+  
+      
+      let shopForm =document.getElementById("shopForm");
+      shopForm.addEventListener('submit',function (event){
+        event.preventDefault();
+        
+        const name = event.target.name.value;
+        
+        const min = event.target.min.value;
+        
+        const max = event.target.max.value;
+        
+        const avg =event.target.avg.value;
+        
+        
+        const userInput = new ShopeSales(name,min,max,avg);
+        const footerEl= document.getElementById('footer');
+        footerEl.remove();
 
-         container.appendChild(tableEl);
-        const trEl = document.createElement('tr');
-        tableEl.appendChild(trEl);
-        const tdEl = document.createElement('td');
-        trEl.appendChild(tdEl);
-     tdEl.textContent='Hourly Totals for All Location';
-     for (let i=0 ; i<hours.length; i++){
+        userInput.getCookies();
+        userInput.render();
+        shopForm.reset();
+        footer();
+      });
+     
+        
+        function footer (){
+       container.appendChild(tableEl);
+          const trEl = document.createElement('tr');
+          // add id to the footer so i can delet it and return after
+          trEl.setAttribute('id','footer')
+          tableEl.appendChild(trEl);
           const tdEl = document.createElement('td');
-        trEl.appendChild(tdEl);
-        tdEl.textContent=totalPerHour[i];
-  }
-      const tddEl = document.createElement('td');
-      trEl.appendChild(tddEl);
-      tddEl.textContent=finelTotal;
-}
+          trEl.appendChild(tdEl);
+       tdEl.textContent='Hourly Totals for All Location';
+       for (let i=0 ; i<hours.length; i++){
+            const tdEl = document.createElement('td');
+          trEl.appendChild(tdEl);
+          tdEl.textContent=totalPerHour[i];
+      }
+        const tddEl = document.createElement('td');
+        trEl.appendChild(tddEl);
+        tddEl.textContent=finelTotal;
+      }
+ 
+
 footer();
+
+

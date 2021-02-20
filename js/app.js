@@ -70,6 +70,7 @@ function headerTable(){
             tddEl.textContent=Math.floor(this.total);
             finelTotal+=this.total;
 
+
       };
       const seattle = new ShopeSales('Seattle',23,65,6.3);
       const tokyo = new ShopeSales('Tokyo',3, 24, 1.2);
@@ -95,6 +96,7 @@ function headerTable(){
       shopForm.addEventListener('submit',function (event){
         event.preventDefault();
         
+        
         const name = event.target.name.value;
         
         const min = event.target.min.value;
@@ -103,12 +105,15 @@ function headerTable(){
         
         const avg =event.target.avg.value;
         
-        
+        console.log(name,min,max,avg);
+      
         const userInput = new ShopeSales(name,min,max,avg);
         const footerEl= document.getElementById('footer');
         footerEl.remove();
 
         userInput.getCookies();
+
+        console.log(userInput.cookiesPerHour);
         userInput.render();
         shopForm.reset();
         footer();
@@ -119,7 +124,7 @@ function headerTable(){
        container.appendChild(tableEl);
           const trEl = document.createElement('tr');
           // add id to the footer so i can delet it and return after
-          trEl.setAttribute('id','footer')
+          trEl.setAttribute('id','footer');
           tableEl.appendChild(trEl);
           const tdEl = document.createElement('td');
           trEl.appendChild(tdEl);

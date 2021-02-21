@@ -52,6 +52,7 @@ footer{
     background-color: rgb(81, 117, 128);
 
 }
+/*the footer part*/
 .fa {
     padding: 20px;
     font-size: 30px;
@@ -75,8 +76,8 @@ footer{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
-
-  .slideshow{
+/*the animation part*/
+.slideshow{
     margin:0 auto;
     padding-top:50px;
     height: 700px;

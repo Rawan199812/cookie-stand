@@ -6,7 +6,7 @@ let finelTotal=0;
 
 
 function getRrandomNumber (min,max){
-    return Math.floor( Math.random()*(max-min+1)+min);
+    return Math.floor( Math.random()*(max-min+1))+min
 }
 
 const container= document.getElementById('salmon-cookies-sales');
